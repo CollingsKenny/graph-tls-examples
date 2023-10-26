@@ -13,6 +13,11 @@ See [this project](https://github.com/aerospike-examples/aerospike-tls-examples)
 * [OpenSSL](https://www.openssl.org/) (verify with: `openssl version`)
 * If you are on a Mac, install `tree` with `brew install tree`
 
+* Java Development Kit (JDK) (verify with: `javac -version`)
+* Maven (verify with: `mvn -version`)
+    * Maven will install the [Aerospike Java Client](https://www.aerospike.com/docs/client/java/)
+
+
 Quick Start
 --------------------------------------------------------------------------------
 
@@ -65,6 +70,31 @@ aerospike/etc/certs/
 └── example.server.crt
 aerospike/etc/private/
 └── example.server.key
+
+Creating TrustStore directory: 'etc/pki/certs'
+Creating KeyStore directory: 'etc/pki/private'
+Creating etc/pki/certs/example.ca.jks
+Certificate was added to keystore
+Creating etc/pki/private/example.client.p12
+---
+etc/pki/certs/example.ca.jks
+keytool error: java.lang.Exception: Keystore file does not exist: etc/pki/certs/example.ca.p12
+---
+etc/pki/private/example.client.chain.p12
+Keystore type: PKCS12
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+example.client, Apr 5, 2020, PrivateKeyEntry, 
+Certificate fingerprint (SHA1): A3:63:D6:B0:3B:E9:7E:78:81:46:5F:D6:53:93:5D:57:27:1B:FE:6D
+---
+etc/pki/certs
+├── example.ca.crt
+└── example.ca.jks
+etc/pki/private
+├── example.client.chain.crt
+└── example.client.chain.p12
 ```
 
 ### 2 - Install Feature Key File
