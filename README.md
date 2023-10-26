@@ -1,13 +1,9 @@
-Aerospike TLS Examples
+Graph TLS Examples
 ================================================================================
 
-This project contains complete functional examples of connecting to Aerospike
-Server Enterprise with standard TLS or mutual authentication TLS (mTLS)
-including:
+See [this project](https://github.com/aerospike-examples/aerospike-tls-examples) for basic examples of connecting to Aerospike without using Aerospike Graph.
 
-* Scripts to general self-signed certificates for testing
-* Configuration to run Aerospike Server locally in Docker
-* Example application in Go, Java, and Python
+
 
 ### Prerequisites
 
@@ -76,56 +72,19 @@ aerospike/etc/private/
 Copy your `features.conf` file (provided by your Aerospike representative) to 
 `aerospike/etc/features.conf`.
 
-### 3a - Run Aerospike Server Enterprise (Standard TLS)
+### 3a - Start Graph and Aerospike Server (Standard TLS)
 
-Run Aerospike Server configured for standard TLS:
-
-```
-$ docker run --rm --name aerospike-tls -p 4000:4000 -v \
-$(pwd)/aerospike/etc:/opt/aerospike/etc aerospike/aerospike-server-enterprise \
---config-file /opt/aerospike/etc/aerospike-tls.conf
-```
-
-Confirm TLS connectivity using `asinfo` running locally in the container:
+Run Docker Compose configured for standard TLS:
 
 ```
-$ docker exec aerospike-tls asinfo -h 127.0.0.1:example.server:4000 --tls-enable \
---tls-cafile=/opt/aerospike/etc/certs/example.ca.crt -v 'status'
+$ docker compose -f compose-std.yaml up
 ```
 
-Output:
-```
-ok
-```
 
-### 3b - Run Aerospike Server Enterprise (Mutual TLS)
+### 3b - Start Graph and Aerospike Server  (Mutual TLS)
 
-Run Aerospike Server configured for mutual TLS (mTLS):
+Run Docker Compose configured for mutual TLS (mTLS):
 
 ```
-$ docker run --rm --name aerospike-tls -p 4000:4000 -v \
-$(pwd)/aerospike/etc:/opt/aerospike/etc aerospike/aerospike-server-enterprise \
---config-file /opt/aerospike/etc/aerospike-mtls.conf
-```
-
-Confirm mTLS connectivity using `asinfo` running locally in the container. Use
-the server certificate as the client certificate:
-
-```
-$ docker exec aerospike-tls asinfo -h 127.0.0.1:example.server:4000 --tls-enable \
---tls-cafile=/opt/aerospike/etc/certs/example.ca.crt \
---tls-keyfile=/opt/aerospike/etc/private/example.server.key \
---tls-certfile=/opt/aerospike/etc/certs/example.server.crt -v 'status'
-```
-
-Output:
-```
-ok
-```
-
-### 4 - Run Example Application
-
-Refer to the README for your preferred application language:
-
-* [Java](tls-example-java/README.md)
-* [Python](tls-example-python/README.md)
+$ docker compose -f compose-mut.yaml up
+``` 

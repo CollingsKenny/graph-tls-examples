@@ -4,11 +4,5 @@ aerospike/etc/features.conf
 aerospike/etc/certs/*
 aerospike/etc/private/*
 
-tls-example-java/*.iml
-tls-example-java/*.idea
-tls-example-java/target/*
-tls-example-java/etc/*
 
-tls-example-python/__pycache__/
-tls-example-python/*.pyc
-tls-example-python/*.pyo
+etc/*
