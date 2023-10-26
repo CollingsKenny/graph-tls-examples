@@ -107,14 +107,43 @@ Copy your `features.conf` file (provided by your Aerospike representative) to
 Run Docker Compose configured for standard TLS:
 
 ```
-$ docker compose -f compose-stls.yaml up
+docker compose -f compose-stls.yaml up
 ```
 
+Output:
+```
+...
+graph-tls-examples-graph-1          | [INFO] o.a.t.g.s.GremlinServer$1 - Gremlin Server configured with worker thread pool of 1, gremlin pool of 16 and boss thread pool of 1.
+graph-tls-examples-graph-1          | [INFO] o.a.t.g.s.GremlinServer$1 - Channel started at port 8182.
+graph-tls-examples-graph-1          | [INFO] c.a.f.i.AerospikeConnection - Initializing AerospikeConnection.
+```
 
 ### 3b - Start Graph and Aerospike Server (Mutual TLS)
 
 Run Docker Compose configured for mutual TLS (mTLS):
 
 ```
-$ docker compose -f compose-mtls.yaml up
+docker compose -f compose-mtls.yaml up
 ``` 
+
+Output:
+```
+...
+graph-tls-examples-graph-1          | [INFO] o.a.t.g.s.GremlinServer$1 - Gremlin Server configured with worker thread pool of 1, gremlin pool of 16 and boss thread pool of 1.
+graph-tls-examples-graph-1          | [INFO] o.a.t.g.s.GremlinServer$1 - Channel started at port 8182.
+graph-tls-examples-graph-1          | [INFO] c.a.f.i.AerospikeConnection - Initializing AerospikeConnection.
+```
+
+### 4 - (Optional) Clean up
+
+Remove docker containers:
+
+```
+docker compose -f compose-stls.yaml rm
+```
+
+or
+
+```
+docker compose -f compose-mtls.yaml rm
+```
