@@ -136,14 +136,14 @@ graph-tls-examples-graph-1          | [INFO] c.a.f.i.AerospikeConnection - Initi
 
 ### 4 - (Optional) Clean up
 
-Remove docker containers:
+Stop and remove docker containers:
 
 ```
-docker compose -f compose-stls.yaml rm
+docker compose -f compose-stls.yaml down
 ```
 
 or
 
 ```
-docker compose -f compose-mtls.yaml rm
+docker compose -f compose-mtls.yaml down
 ```
