@@ -107,14 +107,14 @@ Copy your `features.conf` file (provided by your Aerospike representative) to
 Run Docker Compose configured for standard TLS:
 
 ```
-$ docker compose -f compose-std.yaml up
+$ docker compose -f compose-stls.yaml up
 ```
 
 
-### 3b - Start Graph and Aerospike Server  (Mutual TLS)
+### 3b - Start Graph and Aerospike Server (Mutual TLS)
 
 Run Docker Compose configured for mutual TLS (mTLS):
 
 ```
-$ docker compose -f compose-mut.yaml up
+$ docker compose -f compose-mtls.yaml up
 ``` 
